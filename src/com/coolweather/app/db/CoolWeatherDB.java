@@ -83,7 +83,7 @@ public class CoolWeatherDB {
 	 * 将City实例存储到数据库
 	 */
 	
-	public void saveCity(City city){
+	public void saveCities(City city){
 		if(city != null){
 			ContentValues values = new ContentValues();
 			values.put("city_name", city.getCityName());
@@ -149,7 +149,4 @@ public class CoolWeatherDB {
 		return list;
 	}
 	
-	
-	
-
 }
