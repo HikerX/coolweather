@@ -83,7 +83,7 @@ public class CoolWeatherDB {
 	 * 将City实例存储到数据库
 	 */
 	
-	public void saveCities(City city){
+	public void saveCity(City city){
 		if(city != null){
 			ContentValues values = new ContentValues();
 			values.put("city_name", city.getCityName());
@@ -118,12 +118,12 @@ public class CoolWeatherDB {
 	/**
 	 * 将County实例存储到数据库
 	 */
-	public void saveCounty(County County){
-		if(County != null){
+	public void saveCounty(County county){
+		if(county != null){
 			ContentValues values = new ContentValues();
-			values.put("County_name", County.getCountyName());
-			values.put("County_code", County.getCountyCode());
-			values.put("city_id", County.getCityId());
+			values.put("county_name", county.getCountyName());
+			values.put("county_code", county.getCountyCode());
+			values.put("city_id", county.getCityId());
 			db.insert("County", null, values);
 		}
 	}
@@ -141,6 +141,7 @@ public class CoolWeatherDB {
 				county.setCountyName(cursor.getString(cursor.getColumnIndex("county_name")));
 				county.setCountyCode(cursor.getString(cursor.getColumnIndex("county_code")));
 				county.setCityId(cityId);
+				list.add(county);
 			}while(cursor.moveToNext());
 		}
 		if(cursor != null){
